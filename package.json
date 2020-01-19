@@ -1,0 +1,44 @@
+{
+  "name": "rc_mealbot_new",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "lint": "eslint ./",
+    "lint:fix": "eslint --fix ./",
+    "format": "prettier -c **/*.js",
+    "format:fix": "prettier --write **/*.js",
+    "check": "npm run format && npm run lint",
+    "fix": "npm run format:fix && npm run lint:fix",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moziliar/RC_MealBot_New.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moziliar/RC_MealBot_New/issues"
+  },
+  "homepage": "https://github.com/moziliar/RC_MealBot_New#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "prettier": "1.19.1"
+  },
+  "dependencies": {
+    "chrono-node": "^1.4.2",
+    "dotenv": "^8.2.0",
+    "has-symbols": "^1.0.1",
+    "moment": "latest",
+    "mongoose": "latest",
+    "node-telegram-bot-api": "latest",
+    "nodemon": "^2.0.2"
+  }
+}
