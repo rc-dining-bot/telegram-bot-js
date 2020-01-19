@@ -178,9 +178,7 @@ function markup(pref) {
           { text: `${hid.soup ? '❌' : '✅'}Soup`, callback_data: 'menu.soup' },
           { text: `${hid.indian ? '❌' : '✅'}Indian`, callback_data: 'menu.indian' }
         ],
-        [
-          { text: 'Settings', callback_data: 'settings.home' },
-        ]
+        [{ text: 'Settings', callback_data: 'settings.home' }]
       ]
     }
   };
@@ -229,9 +227,7 @@ async function addFavorite(msg, match) {
   userPrefs.favorites.push(newFood);
   await userPrefs.save();
 
-  bot
-    .sendMessage(chatId, ADDED_FAVORITES_MSG(userPrefs.favorites.join(', ')), HOME_BUTTON_MARKUP)
-    .catch(console.log);
+  bot.sendMessage(chatId, ADDED_FAVORITES_MSG(userPrefs.favorites.join(', ')), HOME_BUTTON_MARKUP).catch(console.log);
 }
 
 async function removeFavorite(msg) {
@@ -260,12 +256,14 @@ async function removeFavorite(msg) {
   if (inlineButtons.length === 0) {
     bot.sendMessage(chatId, NO_FAVORITES_MSG, HOME_BUTTON_MARKUP);
     return;
-  } else {
-    inlineButtons.push([{
+  }
+
+  inlineButtons.push([
+    {
       text: 'Back to start',
       callback_data: 'start.home'
-    }])
-  }
+    }
+  ]);
 
   const opts = {
     reply_markup: {
@@ -322,9 +320,11 @@ function setMealNotificationTime(meal) {
     await userPrefs.save();
 
     await bot
-      .sendMessage(chatId,
+      .sendMessage(
+        chatId,
         `Your ${meal} notification time has been changed to ${notificationTimeString}`,
-        HOME_BUTTON_MARKUP)
+        HOME_BUTTON_MARKUP
+      )
       .catch(console.log);
   };
 }
@@ -394,6 +394,7 @@ async function handleSettings(msg, data) {
       break;
     case HOME:
       settings(msg);
+      break;
     default:
       console.error('Invalid');
   }
