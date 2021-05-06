@@ -33,7 +33,7 @@
     "prettier": "1.19.1"
   },
   "dependencies": {
-    "chrono-node": "^1.4.2",
+    "chrono-node": "^2.2.4",
     "dotenv": "^8.2.0",
     "has-symbols": "^1.0.1",
     "moment": "latest",
